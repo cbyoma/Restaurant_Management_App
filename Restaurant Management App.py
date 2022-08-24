@@ -39,6 +39,13 @@ def btn_clear_action():
     operator = ""
     text_input.set("")
 
+def btn_equalto_action():
+    global operator
+    result = str(eval(operator))
+    text_input.set(result)
+    operator = ""
+
+
 Calc_display = Entry(f2, font=('arial', 20, 'bold'), textvariable=text_input, insertwidth=4, bg='powder blue',
                      bd=20, justify='right')
 Calc_display.grid(columnspan=4)
@@ -96,7 +103,7 @@ btn_clear = Button(f2, padx=16, pady=16, font=('arial', 20, 'bold'), bg='powder 
              text='C', command=btn_clear_action)
 btn_clear.grid(row=5, column=1)
 btn_equalto = Button(f2, padx=16, pady=16, font=('arial', 20, 'bold'), bg='powder blue', fg='black', bd=8,
-             text='=')
+             text='=', command=btn_equalto_action)
 btn_equalto.grid(row=5, column=2)
 division = Button(f2, padx=16, pady=16, font=('arial', 20, 'bold'), bg='powder blue', fg='black', bd=8,
              text='/', command=lambda: btn_click('/'))
